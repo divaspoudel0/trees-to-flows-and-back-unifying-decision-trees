@@ -1,0 +1,113 @@
+{
+  "error_vs_samples": {
+    "sample_sizes": [
+      50,
+      100,
+      200,
+      500,
+      1000,
+      2000
+    ],
+    "errors": [
+      0.2,
+      0.1333,
+      0.05,
+      0.0867,
+      0.0867,
+      0.0833
+    ],
+    "empirical_rate": 0.188,
+    "rate_match": false
+  },
+  "bias_variance": {
+    "depths": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "errors": [
+      0.0867,
+      0.0867,
+      0.0867,
+      0.0333,
+      0.0333,
+      0.0333,
+      0.0333
+    ],
+    "optimal_depth": 5,
+    "bias_variance_tradeoff": true
+  },
+  "concentration": {
+    "n_trials": 100,
+    "mean_error": 0.1115,
+    "std_error": 0.0396,
+    "fraction_within_2std": 0.97,
+    "concentration_holds": true
+  },
+  "gtsm_convergence": {
+    "n_rounds": [
+      1,
+      2,
+      5,
+      10,
+      20,
+      50
+    ],
+    "errors": [
+      0.0867,
+      0.0867,
+      0.0867,
+      0.0867,
+      0.06,
+      0.0267
+    ],
+    "monotonically_decreasing": true
+  },
+  "distributional": {
+    "metrics": [
+      {
+        "depth": 2,
+        "n_leaves": 4,
+        "avg_variance": 0.0871,
+        "avg_purity": 1.0
+      },
+      {
+        "depth": 3,
+        "n_leaves": 4,
+        "avg_variance": 0.0871,
+        "avg_purity": 1.0
+      },
+      {
+        "depth": 4,
+        "n_leaves": 4,
+        "avg_variance": 0.0871,
+        "avg_purity": 1.0
+      },
+      {
+        "depth": 5,
+        "n_leaves": 4,
+        "avg_variance": 0.0871,
+        "avg_purity": 1.0
+      },
+      {
+        "depth": 6,
+        "n_leaves": 4,
+        "avg_variance": 0.0871,
+        "avg_purity": 1.0
+      },
+      {
+        "depth": 7,
+        "n_leaves": 4,
+        "avg_variance": 0.0871,
+        "avg_purity": 1.0
+      }
+    ],
+    "variance_decreasing": true,
+    "purity_increasing": true,
+    "converges": true
+  }
+}

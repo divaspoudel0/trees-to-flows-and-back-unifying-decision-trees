@@ -1,0 +1,32 @@
+{
+  "Wine": {
+    "wasserstein": 0.2566,
+    "tstr_accuracy": 0.1944,
+    "correlation_error": 0.1912,
+    "flow_to_tree_ari": -0.0406,
+    "train_time_s": 5.34,
+    "gen_time_s": 0.017,
+    "n_leaves": 1,
+    "final_loss": 1.6449
+  },
+  "Breast Cancer": {
+    "wasserstein": 0.1713,
+    "tstr_accuracy": 0.6053,
+    "correlation_error": 0.1421,
+    "flow_to_tree_ari": -0.0072,
+    "train_time_s": 8.64,
+    "gen_time_s": 0.024,
+    "n_leaves": 1,
+    "final_loss": 0.9897
+  },
+  "Iris": {
+    "wasserstein": 0.2836,
+    "tstr_accuracy": 0.6,
+    "correlation_error": 0.1032,
+    "flow_to_tree_ari": -0.0133,
+    "train_time_s": 1.86,
+    "gen_time_s": 0.017,
+    "n_leaves": 1,
+    "final_loss": 1.3264
+  }
+}

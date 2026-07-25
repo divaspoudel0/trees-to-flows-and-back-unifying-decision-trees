@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "title": "Reproduction: Trees to Flows and Back: Unifying Decision Trees and Diffusion Models",
+  "emoji": "🎯",
+  "space_id": "divaspoudel/repro-trees-to-flows-and-back-unifying-decision-trees-and-diffusion-models",
+  "paper": null,
+  "tags": [
+    "icml2026-repro",
+    "paper-gW7NZN8zJu"
+  ],
+  "updated_at": "2026-07-25T14:30:33+00:00",
+  "root": {
+    "slug": "index",
+    "title": "Reproduction: Trees to Flows and Back: Unifying Decision Trees and Diffusion Models",
+    "file": "pages/index.md",
+    "children": [
+      {
+        "slug": "executive-summary",
+        "title": "Executive summary",
+        "file": "pages/executive-summary/page.md",
+        "children": []
+      },
+      {
+        "slug": "claim-1-tree-flow-correspondence-theorems-2-1-2-10",
+        "title": "Claim 1: Tree-Flow correspondence theorems 2.1-2.10",
+        "file": "pages/claim-1-tree-flow-correspondence-theorems-2-1-2-10/page.md",
+        "children": []
+      },
+      {
+        "slug": "claim-2-dsmtree-distills-tree-from-diffusion",
+        "title": "Claim 2: DSmTree distills tree from diffusion",
+        "file": "pages/claim-2-dsmtree-distills-tree-from-diffusion/page.md",
+        "children": []
+      },
+      {
+        "slug": "claim-3-implicit-tree-emergence-from-flow-dynamics",
+        "title": "Claim 3: Implicit tree emergence from flow dynamics",
+        "file": "pages/claim-3-implicit-tree-emergence-from-flow-dynamics/page.md",
+        "children": []
+      },
+      {
+        "slug": "claim-4-bidirectional-flow-to-tree-conversion",
+        "title": "Claim 4: Bidirectional flow-to-tree conversion",
+        "file": "pages/claim-4-bidirectional-flow-to-tree-conversion/page.md",
+        "children": []
+      },
+      {
+        "slug": "claim-5-sample-complexity-bounds",
+        "title": "Claim 5: Sample complexity bounds",
+        "file": "pages/claim-5-sample-complexity-bounds/page.md",
+        "children": []
+      },
+      {
+        "slug": "conclusion",
+        "title": "Conclusion",
+        "file": "pages/conclusion/page.md",
+        "children": []
+      }
+    ]
+  },
+  "traces": [],
+  "workspace": {
+    "file": "workspace.json",
+    "file_count": 0,
+    "total_size": 0,
+    "bucket_id": "divaspoudel/repro-trees-to-flows-and-back-unifying-decision-trees-and-diffusion-models-artifacts"
+  },
+  "agent_view_tokens": 5827,
+  "trace_view_tokens": 10,
+  "workspace_view_tokens": 8,
+  "revision": "69d287d82e49654d5f73"
+}

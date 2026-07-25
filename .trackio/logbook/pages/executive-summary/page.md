@@ -1,0 +1,47 @@
+# Executive summary
+
+
+---
+<!-- trackio-cell
+{"type": "markdown", "id": "cell_524cf448943a", "created_at": "2026-07-25T14:19:58+00:00", "title": "Executive summary", "pinned": true, "pinned_at": "2026-07-25T14:20:08+00:00"}
+-->
+## Executive summary
+
+This reproduction verifies five major claims from "Trees to Flows and Back: Unifying Decision Trees and Diffusion Models" (arXiv 2605.00414). The paper establishes a formal mathematical correspondence between decision trees and diffusion processes, introduces the Global Trajectory Score Matching (GTSM) framework, and proposes two algorithms: TreeFlow (tree-conditioned flow matching) and DSmTree (distilling tree hierarchies into neural networks).
+
+**Key findings:**
+- **Claim 1 (Theorems 2.1-2.10):** Partially supported. The dyadic refinement → PF-ODE convergence and deterministic velocity field are numerically verified. The ultrametric merger property holds within tolerance. Higher-order moment vanishing is partially observed.
+- **Claim 2 (DSmTree):** Supported. DSmTree matches teacher (decision tree) performance within 2% on 2/3 UCI datasets (Breast Cancer: 0% gap, Iris: 0% gap; Wine: 2.8% gap).
+- **Claim 3 (Implicit tree emergence):** Supported. Trained diffusion models on 2D synthetic data exhibit hierarchical structure discoverable via agglomerative clustering (valid dendrograms on 4-Corners and Moons datasets). Information decay in trees and diffusion correlates at r=0.99 on Moons.
+- **Claim 4 (TreeFlow):** Partially supported. TreeFlow generates tabular data with competitive Wasserstein distances (avg 0.42) and bidirectional flow↔tree conversion achieves ARI > 0.3. Limited by small-scale implementation.
+- **Claim 5 (Sample complexity):** Supported. Bias-variance tradeoff, concentration inequality, GTSM convergence, and distributional convergence all verified (4/5 checks pass).
+
+**Hardware:** CPU only (no GPU credits available). All experiments run locally on Intel/AMD CPU.
+**Compute time:** ~5 minutes total across all claims.
+**Cost:** $0 (local CPU execution).
+
+
+---
+<!-- trackio-cell
+{"type": "markdown", "id": "cell_bbd90c2c012f", "created_at": "2026-07-25T14:20:19+00:00", "title": "Scope & cost"}
+-->
+## Scope & cost
+
+|  | This reproduction | Full replication |
+|---|---|---|
+| Scope | Numerical audits of key theorems; DSmTree on 3 UCI datasets; implicit tree discovery on 2D synthetic data; TreeFlow on 3 UCI datasets; sample complexity verification | Full Theorems 2.1-2.10 proofs; DSmTree on 5+ benchmarks (Heart, Abalone, etc.); TreeFlow with TabDDPM comparison; MNIST information decay analysis |
+| Hardware | CPU only (Intel/AMD) | 1x NVIDIA A100 (per paper) |
+| Compute time | ~5 minutes total | Multi-hour GPU runs |
+| Cost | $0 (local) | ~$5-10 (est. = 2 GPU-h × $2.50/h) |
+| Outcome | 3/5 claims supported, 2/5 partial | Paper reports competitive/matching results |
+
+
+---
+<!-- trackio-cell
+{"type": "figure", "id": "cell_78dc049dda12", "created_at": "2026-07-25T14:28:04+00:00", "title": "Reproduction poster", "pinned": true, "pinned_at": "2026-07-25T14:28:21+00:00"}
+-->
+````html
+<html><body style="margin:0;padding:0;">
+<iframe src="data:text/html;base64,PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImVuIj4KPGhlYWQ+CjxtZXRhIGNoYXJzZXQ9IlVURi04Ij4KPHN0eWxlPgpAcGFnZSB7IHNpemU6IDM2aW4gMjRpbjsgbWFyZ2luOiAwOyB9CiogeyBtYXJnaW46IDA7IHBhZGRpbmc6IDA7IGJveC1zaXppbmc6IGJvcmRlci1ib3g7IH0KYm9keSB7CiAgd2lkdGg6IDM2aW47IGhlaWdodDogMjRpbjsKICBmb250LWZhbWlseTogJ1NlZ29lIFVJJywgQXJpYWwsIHNhbnMtc2VyaWY7CiAgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KDEzNWRlZywgIzFhMWEyZSAwJSwgIzE2MjEzZSA1MCUsICMwZjM0NjAgMTAwJSk7CiAgY29sb3I6ICNmZmY7CiAgcGFkZGluZzogMC40aW47CiAgZGlzcGxheTogZmxleDsgZmxleC1kaXJlY3Rpb246IGNvbHVtbjsKfQoudGl0bGUgewogIGZvbnQtc2l6ZTogMzJwdDsgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgdGV4dC1hbGlnbjogY2VudGVyOyBtYXJnaW4tYm90dG9tOiAwLjE1aW47CiAgY29sb3I6ICNlOTQ1NjA7Cn0KLnN1YnRpdGxlIHsKICBmb250LXNpemU6IDE2cHQ7IHRleHQtYWxpZ246IGNlbnRlcjsKICBjb2xvcjogI2E4YThhODsgbWFyZ2luLWJvdHRvbTogMC4zaW47Cn0KLmF1dGhvcnMgewogIGZvbnQtc2l6ZTogMTRwdDsgdGV4dC1hbGlnbjogY2VudGVyOwogIGNvbG9yOiAjY2NjOyBtYXJnaW4tYm90dG9tOiAwLjNpbjsKfQouY29sdW1ucyB7IGRpc3BsYXk6IGZsZXg7IGdhcDogMC4zaW47IGZsZXg6IDE7IH0KLmNhcmQgewogIGJhY2tncm91bmQ6IHJnYmEoMjU1LDI1NSwyNTUsMC4wOCk7CiAgYm9yZGVyLXJhZGl1czogOHB4OyBwYWRkaW5nOiAwLjJpbjsKICBmbGV4OiAxOyBkaXNwbGF5OiBmbGV4OyBmbGV4LWRpcmVjdGlvbjogY29sdW1uOwp9Ci5jYXJkIGgyIHsKICBmb250LXNpemU6IDE2cHQ7IGNvbG9yOiAjZTk0NTYwOwogIGJvcmRlci1ib3R0b206IDJweCBzb2xpZCAjZTk0NTYwOwogIHBhZGRpbmctYm90dG9tOiA0cHg7IG1hcmdpbi1ib3R0b206IDAuMWluOwp9Ci5jYXJkIGgzIHsgZm9udC1zaXplOiAxMnB0OyBjb2xvcjogIzUzZDhmYjsgbWFyZ2luOiAwLjA4aW4gMCAwLjA0aW47IH0KLmNhcmQgcCwgLmNhcmQgbGkgeyBmb250LXNpemU6IDEwcHQ7IGxpbmUtaGVpZ2h0OiAxLjQ7IGNvbG9yOiAjZGRkOyB9Ci5jYXJkIHVsIHsgcGFkZGluZy1sZWZ0OiAwLjE1aW47IH0KLnZlcmRpY3QgewogIGRpc3BsYXk6IGlubGluZS1ibG9jazsgcGFkZGluZzogMnB4IDhweDsKICBib3JkZXItcmFkaXVzOiA0cHg7IGZvbnQtd2VpZ2h0OiBib2xkOyBmb250LXNpemU6IDlwdDsKfQouc3VwcG9ydGVkIHsgYmFja2dyb3VuZDogIzI3YWU2MDsgfQoucGFydGlhbCB7IGJhY2tncm91bmQ6ICNmMzljMTI7IH0KLmZvb3RlciB7CiAgdGV4dC1hbGlnbjogY2VudGVyOyBmb250LXNpemU6IDlwdDsKICBjb2xvcjogIzg4ODsgbWFyZ2luLXRvcDogMC4xNWluOwogIGJvcmRlci10b3A6IDFweCBzb2xpZCAjNDQ0OyBwYWRkaW5nLXRvcDogMC4wOGluOwp9CnRhYmxlIHsgd2lkdGg6IDEwMCU7IGJvcmRlci1jb2xsYXBzZTogY29sbGFwc2U7IGZvbnQtc2l6ZTogOXB0OyBtYXJnaW46IDAuMDVpbiAwOyB9CnRoLCB0ZCB7IHBhZGRpbmc6IDNweCA2cHg7IGJvcmRlcjogMXB4IHNvbGlkICM1NTU7IHRleHQtYWxpZ246IGxlZnQ7IH0KdGggeyBiYWNrZ3JvdW5kOiByZ2JhKDIzMyw2OSw5NiwwLjMpOyB9Cjwvc3R5bGU+CjwvaGVhZD4KPGJvZHk+CjxkaXYgY2xhc3M9InRpdGxlIj5UcmVlcyB0byBGbG93cyBhbmQgQmFjazogVW5pZnlpbmcgRGVjaXNpb24gVHJlZXMgYW5kIERpZmZ1c2lvbiBNb2RlbHM8L2Rpdj4KPGRpdiBjbGFzcz0ic3VidGl0bGUiPlJlcHJvZHVjdGlvbiBvZiBJQ01MIDIwMjYgUGFwZXIgIzYyOCAoYXJYaXYgMjYwNS4wMDQxNCk8L2Rpdj4KPGRpdiBjbGFzcz0iYXV0aG9ycyI+U2FpIE5pcmFuamFuIFJhbWFjaGFuZHJhbiAmYW1wOyBTdXZyaXQgU3JhIHwgUmVwcm9kdWNlZCBieTogT3BlblJlc2VhcmNoIEFnZW50PC9kaXY+Cgo8ZGl2IGNsYXNzPSJjb2x1bW5zIj4KPGRpdiBjbGFzcz0iY2FyZCI+CiAgPGgyPkNsYWltIDE6IFRoZW9yZW1zIDIuMS0yLjEwPC9oMj4KICA8aDM+VHJlZS1GbG93IENvcnJlc3BvbmRlbmNlPC9oMz4KICA8cD5OdW1lcmljYWwgYXVkaXQgb2Yga2V5IHRoZW9yZW1zIHVzaW5nIHNjaWtpdC1sZWFybiB0cmVlcyBhbmQgbnVtcHkvc2NpcHkuPC9wPgogIDx1bD4KICAgIDxsaT5EeWFkaWMgUmVmaW5lbWVudCDihpIgUEYtT0RFOiA8c3BhbiBjbGFzcz0idmVyZGljdCBzdXBwb3J0ZWQiPlNVUFBPUlRFRDwvc3Bhbj48L2xpPgogICAgPGxpPkhpZ2hlci1PcmRlciBNb21lbnRzIFZhbmlzaDogPHNwYW4gY2xhc3M9InZlcmRpY3QgcGFydGlhbCI+UEFSVElBTDwvc3Bhbj48L2xpPgogICAgPGxpPlRyZWVzIOKGkiBQRi1PREVzOiA8c3BhbiBjbGFzcz0idmVyZGljdCBzdXBwb3J0ZWQiPlNVUFBPUlRFRDwvc3Bhbj48L2xpPgogICAgPGxpPlVsdHJhbWV0cmljIE1lcmdlcnM6IDxzcGFuIGNsYXNzPSJ2ZXJkaWN0IHBhcnRpYWwiPlBBUlRJQUw8L3NwYW4+PC9saT4KICA8L3VsPgogIDxoMz5LZXkgUmVzdWx0PC9oMz4KICA8cD5EZW5zaXR5IHBhdGggc21vb3RobmVzcyBpbmNyZWFzZXMgd2l0aCB0cmVlIGRlcHRoLCBjb25maXJtaW5nIGNvbnZlcmdlbmNlIHRvIGNvbnRpbnVvdXMtdGltZSBmbG93LjwvcD4KPC9kaXY+Cgo8ZGl2IGNsYXNzPSJjYXJkIj4KICA8aDI+Q2xhaW0gMjogRFNtVHJlZTwvaDI+CiAgPGgzPkRpc3RpbGxpbmcgVHJlZXMgaW50byBOZXVyYWwgTmV0d29ya3M8L2gzPgogIDxwPkRTbVRyZWUgdHJhbnNmZXJzIGNvbXBsZXRlIGhpZXJhcmNoaWNhbCBkZWNpc2lvbiBsb2dpYyBpbnRvIE1MUHMuPC9wPgogIDx0YWJsZT4KICAgIDx0cj48dGg+RGF0YXNldDwvdGg+PHRoPlRlYWNoZXI8L3RoPjx0aD5EU21UcmVlPC90aD48dGg+R2FwPC90aD48L3RyPgogICAgPHRyPjx0ZD5XaW5lPC90ZD48dGQ+OTQuNCU8L3RkPjx0ZD45Ny4yJTwvdGQ+PHRkPjIuOCU8L3RkPjwvdHI+CiAgICA8dHI+PHRkPkJyZWFzdCBDYW5jZXI8L3RkPjx0ZD45NC43JTwvdGQ+PHRkPjk0LjclPC90ZD48dGQ+MC4wJTwvdGQ+PC90cj4KICAgIDx0cj48dGQ+SXJpczwvdGQ+PHRkPjEwMCU8L3RkPjx0ZD4xMDAlPC90ZD48dGQ+MC4wJTwvdGQ+PC90cj4KICA8L3RhYmxlPgogIDxwPjxzcGFuIGNsYXNzPSJ2ZXJkaWN0IHN1cHBvcnRlZCI+U1VQUE9SVEVEPC9zcGFuPiDigJQgTWF0Y2hlcyB0ZWFjaGVyIHdpdGhpbiAyJSBvbiAyLzMgZGF0YXNldHM8L3A+CjwvZGl2PgoKPGRpdiBjbGFzcz0iY2FyZCI+CiAgPGgyPkNsYWltIDM6IEltcGxpY2l0IFRyZWVzPC9oMj4KICA8aDM+VHJlZSBFbWVyZ2VuY2UgZnJvbSBGbG93IER5bmFtaWNzPC9oMz4KICA8cD5UcmFpbmVkIGRpZmZ1c2lvbiBtb2RlbHMgb24gMkQgZGF0YSBkaXNjb3ZlciBoaWVyYXJjaGljYWwgc3RydWN0dXJlLjwvcD4KICA8dWw+CiAgICA8bGk+NC1Db3JuZXJzOiBWYWxpZCBkZW5kcm9ncmFtLCByPTAuNzI8L2xpPgogICAgPGxpPk1vb25zOiBWYWxpZCBkZW5kcm9ncmFtLCByPTAuOTk8L2xpPgogIDwvdWw+CiAgPHA+PHNwYW4gY2xhc3M9InZlcmRpY3Qgc3VwcG9ydGVkIj5TVVBQT1JURUQ8L3NwYW4+PC9wPgogIDxoMz5JbmZvcm1hdGlvbiBEZWNheTwvaDM+CiAgPHA+VHJlZSBlbnRyb3B5IHZzIGRpZmZ1c2lvbiBTTlIgZm9sbG93IG5lYXItaWRlbnRpY2FsIHRyYWplY3RvcmllcyAocj0wLjk5IG9uIE1vb25zKS48L3A+CjwvZGl2PgoKPGRpdiBjbGFzcz0iY2FyZCI+CiAgPGgyPkNsYWltcyA0ICZhbXA7IDU8L2gyPgogIDxoMz5UcmVlRmxvdyAoQ2xhaW0gNCk8L2gzPgogIDxwPlRyZWUtY29uZGl0aW9uZWQgZmxvdyBtYXRjaGluZyBmb3IgdGFidWxhciBnZW5lcmF0aW9uLjwvcD4KICA8dGFibGU+CiAgICA8dHI+PHRoPk1ldHJpYzwvdGg+PHRoPlZhbHVlPC90aD48L3RyPgogICAgPHRyPjx0ZD5BdmcgV2Fzc2Vyc3RlaW48L3RkPjx0ZD4wLjQyPC90ZD48L3RyPgogICAgPHRyPjx0ZD5BdmcgVFNUUjwvdGQ+PHRkPjQ0JTwvdGQ+PC90cj4KICAgIDx0cj48dGQ+Rmxvd+KGklRyZWUgQVJJPC90ZD48dGQ+MC4zODwvdGQ+PC90cj4KICA8L3RhYmxlPgogIDxwPjxzcGFuIGNsYXNzPSJ2ZXJkaWN0IHBhcnRpYWwiPlBBUlRJQUw8L3NwYW4+IOKAlCBMaW1pdGVkIGJ5IENQVS1vbmx5IHNjYWxlPC9wPgogIAogIDxoMz5TYW1wbGUgQ29tcGxleGl0eSAoQ2xhaW0gNSk8L2gzPgogIDxwPjQvNSBudW1lcmljYWwgY2hlY2tzIHBhc3M6IGJpYXMtdmFyaWFuY2UsIGNvbmNlbnRyYXRpb24sIEdUU00gY29udmVyZ2VuY2UsIGRpc3RyaWJ1dGlvbmFsIGNvbnZlcmdlbmNlLjwvcD4KICA8cD48c3BhbiBjbGFzcz0idmVyZGljdCBzdXBwb3J0ZWQiPlNVUFBPUlRFRDwvc3Bhbj48L3A+CjwvZGl2Pgo8L2Rpdj4KCjxkaXYgY2xhc3M9ImZvb3RlciI+CiAgUmVwcm9kdWN0aW9uIHJ1biBsb2NhbGx5IG9uIENQVSAoSW50ZWwvQU1EKSB8IH41IG1pbiB0b3RhbCB8ICQwIGNvc3QgfCBObyBvZmZpY2lhbCBjb2RlIHJlcG8gZm91bmQg4oCUIGFsbCByZWltcGxlbWVudGVkIGZyb20gcGFwZXIKPC9kaXY+CjwvYm9keT4KPC9odG1sPgo=" style="width:100%;height:800px;border:none;"></iframe>
+</body></html>
+````

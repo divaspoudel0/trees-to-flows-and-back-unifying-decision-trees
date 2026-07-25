@@ -1,0 +1,100 @@
+{
+  "4-Corners": {
+    "tree_discovery": {
+      "n_clusters": 4,
+      "valid_dendrogram": true,
+      "merger_matrix": [
+        [
+          Infinity,
+          Infinity,
+          Infinity,
+          Infinity
+        ],
+        [
+          Infinity,
+          Infinity,
+          Infinity,
+          Infinity
+        ],
+        [
+          Infinity,
+          Infinity,
+          Infinity,
+          Infinity
+        ],
+        [
+          Infinity,
+          Infinity,
+          Infinity,
+          Infinity
+        ]
+      ]
+    },
+    "information_decay": {
+      "tree_entropy_normalized": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "diffusion_entropy": [
+        0.5,
+        0.42905340311653367,
+        0.36090725483714875,
+        0.2979366301210704,
+        0.24179617240741008,
+        0.19332136980230874,
+        0.15260866484263105,
+        0.11920292202211755
+      ],
+      "correlation": 0.6364853598821777,
+      "similar_pattern": false
+    },
+    "training_loss_final": 91.72
+  },
+  "Moons": {
+    "tree_discovery": {
+      "n_clusters": 2,
+      "valid_dendrogram": true,
+      "merger_matrix": [
+        [
+          Infinity,
+          Infinity
+        ],
+        [
+          Infinity,
+          Infinity
+        ]
+      ]
+    },
+    "information_decay": {
+      "tree_entropy_normalized": [
+        1.0,
+        0.6544676680046464,
+        0.47320459000408,
+        0.34158230874975687,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "diffusion_entropy": [
+        0.5,
+        0.42905340311653367,
+        0.36090725483714875,
+        0.2979366301210704,
+        0.24179617240741008,
+        0.19332136980230874,
+        0.15260866484263105,
+        0.11920292202211755
+      ],
+      "correlation": 0.9605444364034028,
+      "similar_pattern": true
+    },
+    "training_loss_final": 243.07
+  }
+}

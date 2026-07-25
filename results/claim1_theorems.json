@@ -1,0 +1,62 @@
+{
+  "theorem_2_1_2_3_dyadic": {
+    "theorem": "Theorem 2.1/2.3 (Dyadic Refinement \u2192 PF-ODE)",
+    "depths_tested": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "smoothness_trend": [
+      0.15481675853983645,
+      0.14022347590936657,
+      0.10689387158540871,
+      0.10650818157361588,
+      0.11855339609502424,
+      0.09957770559389638,
+      0.08651331086029344
+    ],
+    "converged": true,
+    "verdict": "SUPPORTED"
+  },
+  "theorem_2_2_moments": {
+    "theorem": "Theorem 2.2 (Higher-Order Moments Vanish)",
+    "m3_ratio_trend": [
+      2.0856645327451706,
+      2.8220126741087896,
+      2.7819870902709654,
+      2.7819870902709654,
+      2.7819870902709654,
+      2.7819870902709654
+    ],
+    "m4_ratio_trend": [
+      4.978968991653857,
+      10.45982201883862,
+      10.193318474026198,
+      10.193318474026198,
+      10.193318474026198,
+      10.193318474026198
+    ],
+    "m3_decreasing": false,
+    "m4_decreasing": false,
+    "verdict": "PARTIAL"
+  },
+  "theorem_2_4_ultrametric": {
+    "theorem": "Theorem 2.4 (Ultrametric Mergers)",
+    "violations": 4,
+    "total_triples": 4,
+    "ultrametric_holds": false,
+    "hierarchy_valid": true,
+    "verdict": "PARTIAL"
+  },
+  "theorem_2_3_pfode": {
+    "theorem": "Theorem 2.3 (Deterministic PF-ODE)",
+    "deterministic": true,
+    "max_velocity_diff": 0.0,
+    "avg_lipschitz": 1.000000000000001,
+    "verdict": "SUPPORTED"
+  }
+}

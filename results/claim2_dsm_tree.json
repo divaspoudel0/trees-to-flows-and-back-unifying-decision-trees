@@ -1,0 +1,26 @@
+{
+  "Wine": {
+    "teacher_accuracy": 0.9444,
+    "dsm_accuracy": 0.9444,
+    "oracle_accuracy": 1.0,
+    "gap_percent": 0.0,
+    "matches_teacher_2pct": true,
+    "final_loss": 0.000434
+  },
+  "Breast Cancer": {
+    "teacher_accuracy": 0.9474,
+    "dsm_accuracy": 0.9474,
+    "oracle_accuracy": 0.9649,
+    "gap_percent": 0.0,
+    "matches_teacher_2pct": true,
+    "final_loss": 0.000775
+  },
+  "Iris": {
+    "teacher_accuracy": 1.0,
+    "dsm_accuracy": 1.0,
+    "oracle_accuracy": 1.0,
+    "gap_percent": 0.0,
+    "matches_teacher_2pct": true,
+    "final_loss": 0.003369
+  }
+}
